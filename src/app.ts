@@ -6,6 +6,7 @@ import session from "express-session";
 import { getAllDatabases } from "./controllers/TestController";
 
 const path = require('path');
+require('dotenv').config()
 
 const app = express();
 
@@ -22,7 +23,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }))
 
-app.use(session({ secret: 'SUPER_SECRET', cookie: { maxAge: 28800000 } }));
+app.use(session({ secret: process.env.SESSION_SECRET, cookie: { maxAge: 28800000 } }));
 
 app.use('/stylesheets/govuk-frontend.min.css',
   express.static(path.join(__dirname, '../node_modules/govuk-frontend/dist/govuk/govuk-frontend.min.css'))
