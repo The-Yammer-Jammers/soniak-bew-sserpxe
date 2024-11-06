@@ -10,8 +10,8 @@ const path = require('path');
 const app = express();
 
 nunjucks.configure([
-  "node_modules/govuk-frontend/dist",
-  "views"
+  'node_modules/govuk-frontend/dist',
+  'views'
 ], {
   autoescape: true,
   express: app
