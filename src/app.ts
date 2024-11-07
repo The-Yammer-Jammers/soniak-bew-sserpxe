@@ -40,3 +40,7 @@ declare module "express-session" {
 app.listen(3000, () => {
   console.log('Server started on port 3000');
 });
+
+app.get("/dashboard", async (req: express.Request, res: express.Response) => {
+  res.render("dashboard.njk", req.body);
+});
