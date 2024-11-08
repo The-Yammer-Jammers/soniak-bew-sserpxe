@@ -7,7 +7,6 @@ export const getAllSalesEmployees = async(req:express.Request, res:express.Respo
 }
 
 export const getSingleSalesEmployee = async(req: express.Request, res: express.Response): Promise<void> =>{
-    var lol = await getSalesEmployeeById(req.params.id);
     res.render('salesEmployeeDetail.html',{SalesEmployee:await getSalesEmployeeById(req.params.id)});
 }
 
