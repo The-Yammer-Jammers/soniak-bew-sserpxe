@@ -4,6 +4,8 @@ import bodyParser from "body-parser";
 import session from "express-session";
 
 import { getAllDatabases } from "./controllers/TestController";
+import { getAllSalesEmployees, getSalesEmployeeForm, getSingleSalesEmployee, postSalesEmployeeForm } from "./controllers/salesEmployeeController";
+import { get } from "http";
 
 const path = require('path');
 require('dotenv').config()
@@ -44,3 +46,7 @@ app.listen(3000, () => {
 });
 
 app.get('/', getAllDatabases);
+app.get('/sales-employees', getAllSalesEmployees);
+app.get('/sales-employees/:id', getSingleSalesEmployee);
+app.get('/sales-employees-form', getSalesEmployeeForm);
+app.get('/sales-employee-form', postSalesEmployeeForm);

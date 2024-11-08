@@ -1,0 +1,44 @@
+{% extends "govuk/template.njk" %}
+ 
+{% block head %}
+  <link rel="stylesheet" href="/stylesheets/govuk-frontend.min.css">
+{% endblock %}
+ 
+{% block content %}
+  <h1 class="govuk-heading-xl">Default page template</h1>
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper" id="main-content">
+        <h1 class="govuk-heading-xl">Sales Employee {{SalesEmployee.employeeId}}</h1>
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Name</th>
+                <th scope="col" class="govuk-table__header">Salary</th>
+                <th scope="col" class="govuk-table__header">National Insurance Number</th>
+                <th scope="col" class="govuk-table__header">Bank Account Number</th>
+            </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">{{SalesEmployee.firstName}} {{SalesEmployee.lastName}}</td>
+                    <td class="govuk-table__cell">{{SalesEmployee.salary}}</td>
+                    <td class="govuk-table__cell">{{SalesEmployee.nationalInsuranceNumber}}</td>
+                    <td class="govuk-table__cell">{{SalesEmployee.bankAccountNumber}}</td>
+ 
+                </tr>
+            </tbody>
+        </table>
+        <a href="/sales-employee" class="govuk-back-link">Back to Sales Employees</a>
+    </main>
+  </div>  
+{% endblock %}
+ 
+{% block bodyEnd %}
+  {# Run JavaScript at end of the <body>, to avoid blocking the initial render. #}
+  <script type="module" src="/javascripts/govuk-frontend.min.js"></script>
+  <script type="module">
+    import { initAll } from '/javascripts/govuk-frontend.min.js'
+    initAll()
+  </script>
+{% endblock %}
+ 
